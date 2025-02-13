@@ -1,4 +1,5 @@
 local registeredNetworkIds = {}
+local hashModel = `prop_tyre_spike_01`
 
 local function debugPrint(text)
     if Config.Debug then
@@ -9,8 +10,18 @@ end
 local function addSpikes(networkId)
     if type(networkId) ~= "number" or networkId == nil then return end
 
+    local entity = NetworkGetEntityFromNetworkId(networkId)
+    if not DoesEntityExist(entity) then return end
+
+    local entityModel = GetEntityModel(entity)
+    if entityModel ~= hashModel then 
+        if Config.Debug then
+            debugPrint("^1Spike not added: ^7Network ID " .. networkId .. ", Entity ID " .. entity .. " is not a spike.")
+        end
+        return
+    end    
+
     if not registeredNetworkIds[networkId] then
-        local entity = NetworkGetEntityFromNetworkId(networkId)
         registeredNetworkIds[networkId] = entity
         debugPrint("^2Spike added: ^7Network ID " .. networkId .. ", Entity ID " .. entity)
 
