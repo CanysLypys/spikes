@@ -67,6 +67,9 @@ end)
 
 RegisterKeyMapping("+dropspikes", "Drop Vehicle Spikes", "keyboard", "G")
 
+
+-- Waiting for new Polyzone Natives... FiveM please commit men
+
 CreateThread(function()
     while true do
         local waitTime = 250
@@ -76,7 +79,7 @@ CreateThread(function()
 
         if vehicle ~= 0 and DoesEntityExist(vehicle) then
             local plate = GetVehicleNumberPlateText(vehicle)
-            local object = GetClosestObjectOfType(playerCoords, 3.0, GetHashKey("prop_tyre_spike_01"), false, false, false)
+            local object = GetClosestObjectOfType(playerCoords, 3.0, hashModel, false, false, false)
 
             if DoesEntityExist(object) then
                 waitTime = 0
