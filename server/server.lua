@@ -31,7 +31,7 @@ local function addSpikes(networkId)
     end
 end
 
-RegisterNetEvent("nc_spikes:deleteSpikes", function(networkId)
+RegisterNetEvent("spikes:deleteSpikes", function(networkId)
     if type(networkId) ~= "number" or networkId == nil then return end
 
     if registeredNetworkIds[networkId] then
