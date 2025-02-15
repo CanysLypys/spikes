@@ -25,7 +25,7 @@ local function storeSpikes()
         for i = 1, 3 do
             netIds[i] = NetworkGetNetworkIdFromEntity(spikes[i])
         end
-        TriggerServerEvent("nc_spikes:storeSpikes", netIds[1], netIds[2], netIds[3])
+        TriggerServerEvent("spikes:storeSpikes", netIds[1], netIds[2], netIds[3])
     end)
 end
 
